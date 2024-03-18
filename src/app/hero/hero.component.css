@@ -1,0 +1,39 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: fit-content;
+}
+
+.spiffy {
+  color: var(--secondary-color);
+  font-weight: Bold;
+  font-size: 8rem;
+
+  margin: auto;
+  margin-bottom: 0.75rem;
+}
+
+.catchphrase {
+  color: var(--accent-color);
+  font-size: 2rem;
+  font-weight: 600;
+
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+
+.btn-sign-in {
+  background-color: var(--secondary-color);
+  text-decoration: none;
+  border: none;
+
+  font-size: 2rem;
+  font-weight: 500;
+}
