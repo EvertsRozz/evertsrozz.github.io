@@ -1,3 +1,3 @@
-# Personal spotify thing
+# Spiffy
 
-idk what imma do yet but ye
+An angular web app with the aim to visualise user data.
