@@ -1,3 +1,4 @@
+/* positioning css */
 body {
   display: flex;
   justify-content: center;
@@ -11,6 +12,7 @@ body {
   height: fit-content;
 }
 
+/* screen middle css */
 .spiffy {
   color: var(--secondary-color);
   font-weight: Bold;
@@ -26,14 +28,37 @@ body {
   font-weight: 600;
 
   margin-top: 0;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
 }
 
 .btn-sign-in {
   background-color: var(--secondary-color);
   text-decoration: none;
+  cursor: pointer;
+
+  padding: 1rem;
   border: none;
+  border-radius: 50px;
 
   font-size: 2rem;
   font-weight: 500;
+}
+
+/* arrow css */
+.btn-arrow {
+  background-color: transparent;
+  cursor: pointer;
+
+  position: absolute;
+  bottom: 5%;
+
+  border: none;
+}
+
+.arrowUp {
+  border: solid var(--white);
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(-135deg);
 }
