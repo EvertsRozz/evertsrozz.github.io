@@ -25,9 +25,15 @@ export class HeroComponent implements OnInit {
       const ACCESS_TOKEN = await this.SpotifyAuthService.getAccessToken(
         event.data
       );
-      ACCESS_TOKEN
-        ? this.SpotifyApiService.getTop(ACCESS_TOKEN)
-        : console.error('didnt get top data');
+      let artists: string[] = [];
+      let tracks: string[] = [];
+      if (ACCESS_TOKEN) {
+        [artists, tracks] = await this.SpotifyApiService.getTop(ACCESS_TOKEN);
+        console.log(artists);
+        console.log(tracks);
+      } else {
+        console.error('didnt get top data');
+      }
     } else {
       console.error('error of something');
       return;

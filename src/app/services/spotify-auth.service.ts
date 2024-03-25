@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
-import { SpotifyTokenResponse } from '../../SpotifyTokenResponse';
+import { SpotifyTokenResponse } from '../interfaces/SpotifyTokenResponse.interface';
 import { SPOTIFY_CLIENT_ID, REDIRECT_TARGET } from '../environments/env';
 
 @Injectable({
