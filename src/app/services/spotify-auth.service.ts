@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 import { SpotifyTokenResponse } from '../../SpotifyTokenResponse';
+import { SPOTIFY_CLIENT_ID, REDIRECT_TARGET } from '../environments/env';
 
 @Injectable({
   providedIn: 'root',
@@ -44,8 +45,8 @@ export class SpotifyAuthService {
   }
 
   async userAuth() {
-    const cliendId: string = '7fa613601521400b95b4b28993b75e46';
-    const redirectUri: string = 'https://spiffy-sapp.web.app/redirect/';
+    const cliendId: string = SPOTIFY_CLIENT_ID;
+    const redirectUri: string = REDIRECT_TARGET;
 
     const scopes: string = 'user-top-read';
     const authUrl = new URL('https://accounts.spotify.com/authorize');
@@ -80,8 +81,8 @@ export class SpotifyAuthService {
   }
 
   async getAccessToken(code: string) {
-    const clientId = '7fa613601521400b95b4b28993b75e46';
-    const redirectUri = 'https://spiffy-sapp.web.app/redirect/';
+    const clientId = SPOTIFY_CLIENT_ID;
+    const redirectUri = REDIRECT_TARGET;
     const body = new URLSearchParams();
     body.append('client_id', clientId);
     body.append('grant_type', 'authorization_code');
