@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { SpotifyAuthService } from '../services/spotify-auth.service';
-import { SpotifyApiService } from '../services/spotify-api.service';
-
+import { SpotifyAuthService } from '../../services/spotify-auth.service';
+import { SpotifyApiService } from '../../services/spotify-api.service';
+import { logEvent } from 'firebase/analytics';
+import { analytics } from '../../../main';
 @Component({
   selector: 'app-hero',
   standalone: true,
@@ -41,6 +42,7 @@ export class HeroComponent implements OnInit {
   }
 
   onBtnClick() {
+    logEvent(analytics, 'login');
     this.SpotifyAuthService.userAuth();
   }
 }

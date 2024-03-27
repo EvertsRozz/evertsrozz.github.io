@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Artists } from '../interfaces/artists.interface';
-import { SpotifyData } from '../interfaces/tracks.interface';
+import { Tracks } from '../interfaces/tracks.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -18,27 +18,35 @@ export class SpotifyApiService {
       headers: { Authorization: `Bearer ${token}` },
     });
 
-    // if data returns
-    if (artists && tracks) {
-      const artistObject: Artists = await artists.json();
-      const tracksObject: SpotifyData = await tracks.json();
+    // if data returns try parsing
+    try {
+      if (artists && tracks) {
+        console.log(artists);
+        console.log(tracks);
+        const artistObject: Artists = await artists.json();
+        const tracksObject: Tracks = await tracks.json();
 
-      let processedArtists: string[] = [];
-      let processedTracks: string[] = [];
+        let processedArtists: string[] = [];
+        let processedTracks: string[] = [];
 
-      // process the data in both for loops
-      for (let artist of artistObject.items) {
-        processedArtists.push(artist.name);
+        // process the data in both for loops
+        for (let artist of artistObject.items) {
+          processedArtists.push(artist.name);
+        }
+
+        for (let track of tracksObject.items) {
+          processedTracks.push(track.name);
+        }
+
+        return [processedArtists, processedTracks];
+      } else {
+        console.error(
+          "Spotify-api: artists and/or tracks couldn't be fetched."
+        );
+        return;
       }
-
-      for (let track of tracksObject.items) {
-        processedTracks.push(track.name);
-      }
-
-      return [processedArtists, processedTracks];
-    } else {
-      console.error("Spotify-api: artists and/or tracks couldn't be fetched.");
-      return;
+    } catch (e) {
+      console.error(`Error at spotify-api: ${e}`);
     }
   }
 }

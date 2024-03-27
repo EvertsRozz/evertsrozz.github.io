@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
-import { HeroComponent } from './hero/hero.component';
-import { AuthRedirectComponent } from './auth-redirect/auth-redirect.component';
+import { HeroComponent } from './components/hero/hero.component';
+import { AuthRedirectComponent } from './components/auth-redirect/auth-redirect.component';
 
 export const routes: Routes = [
   {

@@ -57,7 +57,7 @@ interface ExternalIds {
   isrc: string;
 }
 
-export interface SpotifyData {
+export interface Tracks {
   items: SpotifyTrack[];
   total: number;
   limit: number;
