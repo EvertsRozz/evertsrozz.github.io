@@ -1,1 +1,18 @@
-<p>top-list works!</p>
+<section class="topList-section">
+  <main class="topList-main">
+    <div class="artists-list">
+      <ol>
+        @for (artist of artists; track $index) {
+        <li>{{ artist }}</li>
+        }
+      </ol>
+    </div>
+    <div class="tracks-list">
+      <ol>
+        @for (track of tracks; track $index) {
+        <li>{{ track }}</li>
+        }
+      </ol>
+    </div>
+  </main>
+</section>

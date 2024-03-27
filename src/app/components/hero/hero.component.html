@@ -1,12 +1,19 @@
 <body>
-  <div class="hero-wrapper">
-    <h1 class="spiffy">Spiffy</h1>
-    <p class="catchphrase">Your spotify account visualised</p>
-    <button class="btn-sign-in" (click)="onBtnClick()">
-      Log in with Spotify
+  <section class="hero-section">
+    <div class="hero-wrapper">
+      <h1 class="spiffy">Spiffy</h1>
+      <p class="catchphrase">Your spotify account visualised</p>
+      <button class="btn-sign-in" (click)="onBtnClick()">
+        Log in with Spotify
+      </button>
+    </div>
+    <button class="btn-arrow" title="Arrow button">
+      <i class="arrowUp"></i>
     </button>
-  </div>
-  <button class="btn-arrow" title="Arrow button">
-    <i class="arrowUp"></i>
-  </button>
+  </section>
+
+  <!-- here -->
+  <section class="topList-section">
+    <ng-template cdkPortalOutlet #portalOutlet="cdkPortalOutlet"></ng-template>
+  </section>
 </body>

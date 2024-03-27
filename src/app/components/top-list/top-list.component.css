@@ -1,0 +1,14 @@
+.topList-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.topList-main {
+  display: flex;
+  background-color: var(--secondary-color);
+  min-width: 70vh;
+  height: 70%;
+  flex-basis: 50%;
+}

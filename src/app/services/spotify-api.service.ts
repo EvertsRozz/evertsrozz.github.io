@@ -8,7 +8,7 @@ import { Tracks } from '../interfaces/tracks.interface';
 export class SpotifyApiService {
   constructor() {}
 
-  async getTop(token: string): Promise<any> {
+  async getTop(token: string, returnIsObject: boolean): Promise<any> {
     const artists = await fetch('https://api.spotify.com/v1/me/top/artists', {
       method: 'GET',
       headers: { Authorization: `Bearer ${token}` },
@@ -30,15 +30,19 @@ export class SpotifyApiService {
         let processedTracks: string[] = [];
 
         // process the data in both for loops
-        for (let artist of artistObject.items) {
-          processedArtists.push(artist.name);
+        if (returnIsObject == false) {
+          for (let artist of artistObject.items) {
+            processedArtists.push(artist.name);
+          }
+
+          for (let track of tracksObject.items) {
+            processedTracks.push(track.name);
+          }
+
+          return [processedArtists, processedTracks];
         }
 
-        for (let track of tracksObject.items) {
-          processedTracks.push(track.name);
-        }
-
-        return [processedArtists, processedTracks];
+        return [artistObject, tracksObject];
       } else {
         console.error(
           "Spotify-api: artists and/or tracks couldn't be fetched."

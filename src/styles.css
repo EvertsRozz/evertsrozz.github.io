@@ -20,6 +20,11 @@ html {
 body {
   background-color: var(--prim-color);
   margin: 0;
-  height: 100vh;
-  width: 100vw;
+  min-height: 100vh;
+  max-width: 100vw;
+  scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
